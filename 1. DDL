@@ -1,0 +1,13 @@
+create table Employee (Eno number(2), Ename varchar(20), street varchar(20), city varchar(20), doj date, designation varchar(20), salary number(20));
+
+insert into Employee values (1,"Shivansh", "Hauz Khas", "New Delhi", "10-Jan-2023", "Employee", 1000);
+insert into Employee values (2,"Abc", "IIT", "New Delhi", "1-Feb-2023", "HR", 4000);
+insert into Employee values (3,"Pqr", "Rk Puram", "New Delhi", "7-Mar-2023", "Manager", 6000);
+
+alter table Employee add email varchar(20);
+
+alter table Employee rename to bank_employee;
+
+truncate table Employee;
+
+drop table Employee;
