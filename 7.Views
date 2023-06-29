@@ -1,0 +1,15 @@
+CREATE TABLE bank (empNo number(10), empName varchar(40), DOJ Date, Designation varchar (10));
+
+INSERT INTO bank VALUES (1,"Abc", "11/02/2009","Owner");
+INSERT INTO bank VALUES (2,"Def", "19/12/2010","Manager");
+INSERT INTO bank VALUES (3,"Pqr", "01/05/2014","Cashier");
+
+CREATE VIEW bankView as SELECT empName, Designation from bank;
+
+select * from bankView;
+
+CREATE view bankView2 as SELECT empname, Designation, empNo from bank;
+
+select * from bankView2;
+
+DROP view bankView;
