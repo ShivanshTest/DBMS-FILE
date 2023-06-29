@@ -1,0 +1,23 @@
+create table Order1 (orderId number(2), customerId number(2), orderDate Date);
+
+create table Customer (customerId number(2), customerName varchar(20), contactNo number(10), country varchar(20));
+
+insert into Order1 values (108,2,("11/02/2009"));
+insert into Order1 values (109,23,("19/09/2014"));
+insert into Order1 values (110,33,("12/05/2015"));
+
+insert into Customer values (1,"Aman",8282828282,"India");
+insert into Customer values (2,"Arnav",8925748341,"Germany");
+insert into Customer values (3,"Avinash",9294934262,"Australia");
+
+SELECT order1.orderId, Customer.customername, Order1.orderDate FROM Order1 INNER JOIN Customer on Order1.customerid = Customer.customerid;
+
+SELECT Customer.customername, Order1.orderid FROM Customer LEFT JOIN Order1 on Customer.customerid = Order1.customerid order by Customer.customername;
+
+SELECT order1.orderId, Customer.customername FROM Order1 RIGHT JOIN Customer on Order1.customerid = Customer.customerid order by Customer.customername;
+
+SELECT Customer.customername, Order1.orderid from Customer full join Order1 on Customer.customerId = Order1.customerid order by Customer.customername
+
+SELECT * from Customer NATURAL JOIN Order1;
+
+SELECT Order1.orderid, Customer.customerName, Order1.orderdate from Order1 INNER JOIN Customer on Order1.customerid>Customer.customerid;
