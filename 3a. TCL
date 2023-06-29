@@ -1,0 +1,25 @@
+create table Employee (Eno number(2), Ename varchar(20), street varchar(20), city varchar(20), doj date, designation varchar(20), salary number(20));
+
+insert into Employee values (1,"Shivansh", "Hauz Khas", "New Delhi", "10-Jan-2023", "Employee", 1000);
+insert into Employee values (2,"Abc", "IIT", "New Delhi", "1-Feb-2023", "HR", 4000);
+insert into Employee values (3,"Pqr", "Rk Puram", "New Delhi", "7-Mar-2023", "Manager", 6000);
+
+savepoint s1;
+
+insert into Employee values (4,"Def", "Palam", "New Delhi", "12-Feb-2023", "Employee", 5000);
+
+commit;
+
+insert into Employee values (5,"Ghi", "Dashratpuri", "New Delhi", "17-Mar-2023", "Recruiter", 6000);
+
+savepoint s2;
+
+insert into Employee values (6,"Stu", "Dabri", "New Delhi", "21-Feb-2023", "Researcher", 7000);
+
+select * from Employee;
+
+rollback to s2;
+select * from Employee;
+
+rollback to s1;   --> will give same output as above since it has been commited already
+select * from Employee;
