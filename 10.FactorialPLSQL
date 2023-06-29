@@ -1,0 +1,18 @@
+DECLARE
+   i NUMBER;
+   n NUMBER;
+   f NUMBER := 1;
+BEGIN
+   n := &n;
+   
+   FOR i IN 1..n LOOP
+      f := f * i;
+   END LOOP;
+   
+   dbms_output.put_line('Factorial = ' || f);
+END;
+/
+
+OUTPUT: 
+Enter value for n :5
+Factorial = 120
