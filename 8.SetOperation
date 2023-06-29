@@ -1,0 +1,19 @@
+CREATE TABLE info1 (id number(2), name char(20));
+CREATE TABLE info2 (id number(2), name char(20));
+
+INSERT INTO info1 VALUES (1,"Abc");
+INSERT INTO info1 VALUES (2,"Pqr");
+INSERT INTO info1 VALUES (3,"Ghi");
+INSERT INTO info1 VALUES (4,"Pqr");
+INSERT INTO info1 VALUES (5,"Xyz");
+
+INSERT INTO info2 VALUES (1,"Stu");
+INSERT INTO info2 VALUES (2,"Vwx");
+INSERT INTO info2 VALUES (3,"Jkl");
+
+select * from info1;
+select * from info2;
+select * from info1 union select * from info2;
+select * from info1 union ALL select * from info2;
+select * from info1 INTERSECT select * from info2;
+select * from info1 MINUS select * from info2;
