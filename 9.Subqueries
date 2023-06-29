@@ -1,0 +1,80 @@
+-- Create the Motel table
+CREATE TABLE Motel (
+   Motel_No NUMBER,
+   Name VARCHAR2(50),
+   City VARCHAR2(50)
+);
+
+-- Create the Room table
+CREATE TABLE Room (
+   Room_No NUMBER,
+   Hotel_No NUMBER,
+   Type VARCHAR2(50),
+   Price NUMBER
+);
+
+-- Create the Guest table
+CREATE TABLE Guest (
+   Guest_No NUMBER,
+   Name VARCHAR2(50),
+   City VARCHAR2(50)
+);
+
+-- Create the Booking table
+CREATE TABLE Booking (
+   Hotel_No NUMBER,
+   Guest_No NUMBER,
+   Date_From DATE,
+   Date_To DATE,
+   Room_No NUMBER
+);
+
+-- Insert data into the Motel table
+INSERT INTO Motel (Motel_No, Name, City)
+VALUES (1, 'Motel A', 'City A');
+
+INSERT INTO Motel (Motel_No, Name, City)
+VALUES (2, 'Motel B', 'City B');
+
+
+-- Insert data into the Room table
+INSERT INTO Room (Room_No, Hotel_No, Type, Price)
+VALUES (101, 1, 'Single', 100);
+
+INSERT INTO Room (Room_No, Hotel_No, Type, Price)
+VALUES (102, 1, 'Double', 150);
+
+INSERT INTO Room (Room_No, Hotel_No, Type, Price)
+VALUES (201, 2, 'Single', 120);
+
+INSERT INTO Room (Room_No, Hotel_No, Type, Price)
+VALUES (202, 2, 'Double', 180);
+
+
+-- Insert data into the Guest table
+INSERT INTO Guest (Guest_No, Name, City)
+VALUES (1, 'Guest A', 'City A');
+
+INSERT INTO Guest (Guest_No, Name, City)
+VALUES (2, 'Guest B', 'City B');
+
+
+-- Insert data into the Booking table
+INSERT INTO Booking (Hotel_No, Guest_No, Date_From, Date_To, Room_No)
+VALUES (1, 1, DATE '2023-07-01', DATE '2023-07-05', 101);
+
+INSERT INTO Booking (Hotel_No, Guest_No, Date_From, Date_To, Room_No)
+VALUES (2, 2, DATE '2023-08-01', DATE '2023-08-07', 202);
+
+
+--Belonging to delhi and Mumbai 
+Select name, city as address from guest where city = ‘Delhi’ or city = ‘Mumbai’;
+--Total no of hotel 
+Select name count(*) from hotel group by city;
+--ITC Maurya by guest G010 
+Select * from Booking where guest_no = ‘G010’ and hotel_no = (Select hotel_no from hotel where name = ‘ITC Maurya’);
+--Daily revenue from double rooms
+Select sum(price) from room where type = ‘double’;
+
+--List hotel name, room no, type and price of all rooms
+Select name, room_no, type, price from room natural join hotel; 
