@@ -1,0 +1,17 @@
+create table Course (Cid number(2) primary key, CourseName varchar(20));
+
+create table Student (Id number(2) primary key, Sname varchar(20) not null, email varchar(20) unique, age number(2) check (age>18), Cid number (2), foreign key(cid) references Course(Cid));
+
+insert into Course values(1,"DBMS");
+insert into Course values(2,"TOC");
+
+insert into Student values(1,"Abc", "abc@gmail.com", 19,1);
+insert into Student values(1,"Pqr", "pqr@gmail.com", 20,2); --> error as Id is given primary key constraint
+insert into Student values(2,NULL, "xyz@gmail.com", 20,2); --> error as name cannot be given as null
+insert into Student values(2,"Pqr", "pqr@gmail.com", 10,2); --> error as check constraint is failed 
+insert into Student values(2,"Pqr", NULL, 20,2);  --> No error as email can be null
+
+desc Course;
+desc Student;
+select * from Course;
+select * from Student;
