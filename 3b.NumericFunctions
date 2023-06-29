@@ -1,0 +1,11 @@
+select abs(-10);
+select floor(98.34);
+select mod(10,3);
+select round(10,2451,2);
+select sin(1.57);
+select cos(1.57);
+select tan(0);
+select log10(1000);
+select log(10,1000); --> giving error in online compiler
+select power(2,2);
+select sqrt(4);
